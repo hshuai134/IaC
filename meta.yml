@@ -1,0 +1,13 @@
+---
+version: 0.1 # 配置格式版本号，方便做兼容
+templates:
+  - name: Deploy alicoud esc eip  # 模板名称
+    terraform:
+      workdir: ./
+      var:
+        access_key: ""
+        secret_key: ""
+        region: ""
+        vswitch_availability_zone: "cn-beijing-b"
+
+
