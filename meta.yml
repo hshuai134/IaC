@@ -1,7 +1,7 @@
 ---
 version: 0.1 # 配置格式版本号，方便做兼容
 templates:
-  - name: Deploy alicoud esc eip  # 模板名称
+  - name: yunji_alicloud_ecs_eip # 模板名称
     terraform:
       workdir: ./
       var:
