@@ -1,13 +1,11 @@
----
-version: 0.1 # 配置格式版本号，方便做兼容
+version: 0.1
 templates:
-  - name: yunji_alicloud_ecs_eip # 模板名称
-    terraform:
-      workdir: ./
-      var:
-        access_key: ""
-        secret_key: ""
-        region: ""
-        vswitch_availability_zone: "cn-beijing-b"
-
-
+- name: yunji_alicloud_ecs_eip
+  terraform:
+    workdir: ./
+    var:
+      access_key: ''
+      secret_key: ''
+      region: ''
+      vswitch_availability_zone: cn-beijing-b
+    save_state: true
