@@ -4,8 +4,7 @@ templates:
   terraform:
     workdir: ./
     var:
-      access_key: ''
-      secret_key: ''
-      region: ''
-      vswitch_availability_zone: cn-beijing-b
+      vswitch_availability_zone: "cn-beijing-b"
     save_state: true
+    description: "部署阿里云ecs+eip服务"
+    timeout: 1500
