@@ -6,5 +6,5 @@ templates:
     var:
       vswitch_availability_zone: cn-beijing-b
     save_state: true
-  description: "\u90E8\u7F72\u963F\u91CC\u4E91ecs+eip\u670D\u52A1"
+  description: 部署阿里云ecs+eip服务
   timeout: 1500
