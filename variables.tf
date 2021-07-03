@@ -1,6 +1,33 @@
-
-
 variable "vswitch_availability_zone" {
-   description = "交换机可用区域地址"
+   description = "交换机可用区域地址()"
    default = "cn-beijing-b"
 }
+
+variable "region" {
+   description = "区域"
+   default = "cn-beijing"
+}
+
+variable "vpc_name" {
+   description = "vpc名称"
+   default = "iac foo"
+}
+
+variable "ip_protocol" {
+   default = "tcp"
+}
+
+variable "instance_number" {
+   default = "3"
+}
+
+variable "instance_type" {
+   description = "实例类型"
+   default = "ecs.n2.small"
+}
+
+variable "system_disk_category" {
+   description = "磁盘类型"
+   default = "cloud_ssd"
+}
+
