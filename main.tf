@@ -29,7 +29,6 @@ resource "alicloud_security_group_rule" "allow_all_tcp" {
 
 module "ecs" {
  source                      = "./modules/ecs"
- region                      = var.region
  number_of_instances         = "3"
  vswitch_id                  = alicloud_vswitch.vsw.id
  group_ids                   = [alicloud_security_group.default.id]
@@ -55,7 +54,6 @@ module "ecs" {
 
 module "eip" {
   source = "./modules/eip"
-  region = var.region
 
   create               = true
   name                 = "ecs-eip"
