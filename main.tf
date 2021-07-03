@@ -1,7 +1,7 @@
 // Create several ECS instances
 
 resource "alicloud_vpc" "vpc" {
-  name       = "tf_test_foo"
+  name       = var.vpc_name
   cidr_block = "172.16.0.0/12"
 }
 
@@ -18,7 +18,7 @@ resource "alicloud_security_group" "default" {
 
 resource "alicloud_security_group_rule" "allow_all_tcp" {
   type              = "ingress"
-  ip_protocol       = "tcp"
+  ip_protocol       = var.ip_protocol
   nic_type          = "intranet"
   policy            = "accept"
   port_range        = "1/65535"
@@ -29,19 +29,19 @@ resource "alicloud_security_group_rule" "allow_all_tcp" {
 
 module "ecs" {
  source                      = "./modules/ecs"
- number_of_instances         = "3"
+ number_of_instances         = var.instance_number
  vswitch_id                  = alicloud_vswitch.vsw.id
  group_ids                   = [alicloud_security_group.default.id]
  private_ips                 = ["172.16.0.10", "172.16.0.11", "172.16.0.12"]
  image_ids                   = ["ubuntu_18_04_64_20G_alibase_20190624.vhd"]
- instance_type               = "ecs.n2.small"
+ instance_type               = var.instance_type
  internet_max_bandwidth_out  = 10
  associate_public_ip_address = false
  instance_name               = "my_module_instances_"
  host_name                   = "sample"
  internet_charge_type        = "PayByTraffic"
  password                    = "User@123"
- system_disk_category        = "cloud_ssd"
+ system_disk_category        = var.system_disk_category
  data_disks = [
   {
     disk_category = "cloud_ssd"
