@@ -10,7 +10,7 @@ variable "region" {
 
 variable "vpc_name" {
    description = "vpc名称"
-   default = "iac foo"
+   default = "iac_foo"
 }
 
 variable "ip_protocol" {
