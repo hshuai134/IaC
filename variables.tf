@@ -14,10 +14,12 @@ variable "vpc_name" {
 }
 
 variable "ip_protocol" {
+   description = "IP协议"
    default = "tcp"
 }
 
 variable "instance_number" {
+   description = "云主机数量"
    default = "3"
 }
 
