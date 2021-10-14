@@ -32,7 +32,7 @@ module "ecs" {
  number_of_instances         = var.instance_number
  vswitch_id                  = alicloud_vswitch.vsw.id
  group_ids                   = [alicloud_security_group.default.id]
- private_ips                 = ["172.16.0.10", "172.16.0.11", "172.16.0.12"]
+ private_ips                 = ["172.16.0.10", "172.16.0.11"]
  image_ids                   = ["ubuntu_18_04_64_20G_alibase_20190624.vhd"]
  instance_type               = var.instance_type
  internet_max_bandwidth_out  = 10
