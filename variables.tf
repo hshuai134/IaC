@@ -20,7 +20,7 @@ variable "ip_protocol" {
 
 variable "instance_number" {
    description = "云主机数量"
-   default = "2"
+   default = "3"
 }
 
 variable "instance_type" {

@@ -32,7 +32,7 @@ module "ecs" {
  number_of_instances         = var.instance_number
  vswitch_id                  = alicloud_vswitch.vsw.id
  group_ids                   = [alicloud_security_group.default.id]
- private_ips                 = ["172.16.0.10", "172.16.0.11"]
+ private_ips                 = ["172.16.0.10", "172.16.0.11", "172.16.0.12"]
  image_ids                   = ["ubuntu_18_04_64_20G_alibase_20190624.vhd"]
  instance_type               = var.instance_type
  internet_max_bandwidth_out  = 10
@@ -67,7 +67,7 @@ module "eip" {
     Location = "foo"
   }
 
-  number_of_computed_instances = 2
+  number_of_computed_instances = 3
   computed_instances = [
     {
       instance_ids  = module.ecs.this_instance_id
@@ -82,7 +82,7 @@ module "eip" {
     spec = "slb.s2.small"
     servers_of_default_server_group = [
       {
-        server_ids = join(",", module.ecs.this_instance_id)
+        server_ids = join(",", module.tf-instances.this_instance_id)
         weight     = "100"
         type       = "ecs"
       },
