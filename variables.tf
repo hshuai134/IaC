@@ -1,11 +1,11 @@
 variable "vswitch_availability_zone" {
    description = "交换机可用区域地址"
-   default = "cn-beijing-b"
+   default = "cn-hangzhou-b"
 }
 
 variable "region" {
    description = "区域"
-   default = "cn-beijing"
+   default = "cn-hangzhou"
 }
 
 variable "vpc_name" {
@@ -20,7 +20,7 @@ variable "ip_protocol" {
 
 variable "instance_number" {
    description = "云主机数量"
-   default = "3"
+   default = "2"
 }
 
 variable "instance_type" {

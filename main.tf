@@ -67,7 +67,7 @@ module "eip" {
     Location = "foo"
   }
 
-  number_of_computed_instances = 3
+  number_of_computed_instances = 2
   computed_instances = [
     {
       instance_ids  = module.ecs.this_instance_id
