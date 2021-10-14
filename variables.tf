@@ -5,7 +5,7 @@ variable "vswitch_availability_zone" {
 
 variable "region" {
    description = "区域"
-   default = "cn-hangzhou"
+   default = "cn-beijing"
 }
 
 variable "vpc_name" {
