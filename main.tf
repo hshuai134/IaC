@@ -77,14 +77,14 @@ module "eip" {
   ]
 }
 
-  # module "slb" {
-  #   source  = "./modules/slb"
-  #   spec = "slb.s2.small"
-  #   servers_of_default_server_group = [
-  #     {
-  #       server_ids = join(",", module.tf-instances.this_instance_id)
-  #       weight     = "100"
-  #       type       = "ecs"
-  #     },
-  #   ]
-  # }
+  module "slb" {
+    source  = "./modules/slb"
+    spec = "slb.s2.small"
+    servers_of_default_server_group = [
+      {
+        server_ids = join(",", module.esc.this_instance_id)
+        weight     = "100"
+        type       = "ecs"
+      },
+    ]
+  }
