@@ -51,7 +51,6 @@ module "ecs" {
  ]
 }
 
-
 module "eip" {
   source = "./modules/eip"
 
@@ -68,7 +67,6 @@ module "eip" {
     Location = "foo"
   }
 
-  # The number of instances created by other modules
   number_of_computed_instances = 3
   computed_instances = [
     {
@@ -78,3 +76,15 @@ module "eip" {
     }
   ]
 }
+
+  module "slb" {
+    source  = "./modules/slb"
+    spec = "slb.s2.small"
+    servers_of_default_server_group = [
+      {
+        server_ids = join(",", module.tf-instances.this_instance_id)
+        weight     = "100"
+        type       = "ecs"
+      },
+    ]
+  }
